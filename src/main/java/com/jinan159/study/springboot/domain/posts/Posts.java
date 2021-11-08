@@ -1,5 +1,6 @@
 package com.jinan159.study.springboot.domain.posts;
 
+import com.jinan159.study.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,11 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Getter // Getter 생성
 @NoArgsConstructor // 인수가 없는 생성자를 생성
 @Entity // 테이블과 링크될 클래스임을 나타냄(기본으로 카멜케이스를 언더스코어네이밍으로 매칭함, MyPosts => my_posts)
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id // 테이블의 PK 필드를 나타냄
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK생성 규칙, 스프링부트 2.0 에서는 괄호안의 설정 있어야 auto_increment 됨
