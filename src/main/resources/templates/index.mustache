@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>스프링 부트 입니다.</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+    {{>layout/header}}
+
+    <div class="container">
+        <h1>게시글 조회</h1>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">제목</th>
+                <th scope="col">작성자</th>
+                <th scope="col">최종수정일</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#posts}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{title}}</td>
+                    <td>{{content}}</td>
+                    <td>{{modifiedDate}}</td>
+                </tr>
+            {{/posts}}
+            </tbody>
+        </table>
+    </div>
+
+    {{>layout/footer}}
+</body>
+</html>
