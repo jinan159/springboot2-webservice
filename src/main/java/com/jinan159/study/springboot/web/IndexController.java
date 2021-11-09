@@ -1,5 +1,8 @@
 package com.jinan159.study.springboot.web;
 
+import com.jinan159.study.springboot.config.auth.LoginUser;
+import com.jinan159.study.springboot.config.auth.dto.SessionUser;
+import com.jinan159.study.springboot.domain.user.User;
 import com.jinan159.study.springboot.service.posts.PostsService;
 import com.jinan159.study.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -8,18 +11,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.stream.Collectors;
+import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
     public String index(Model model) {
 
         model.addAttribute("posts", postsService.findAllDesc());
+
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+            model.addAttribute("userPicture", user.getPicture());
+        }
 
         return "index";
     }
