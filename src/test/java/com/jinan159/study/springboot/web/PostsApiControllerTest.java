@@ -34,14 +34,13 @@ public class PostsApiControllerTest {
     @Autowired
     private PostsRepository postsRepository;
 
-
     @After
     public void tearDown() throws Exception {
         postsRepository.deleteAll();
     }
 
     @Test
-    public void Posts_saved() throws Exception {
+    public void Posts_등록된다() throws Exception {
         String title = "title test";
         String content = "content";
         PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
@@ -63,7 +62,7 @@ public class PostsApiControllerTest {
     }
 
     @Test
-    public void Posts_updated() throws Exception {
+    public void Posts_수정된다() throws Exception {
         //given
         Posts savedPosts = postsRepository.save(Posts.builder()
                 .title("title")
@@ -75,7 +74,6 @@ public class PostsApiControllerTest {
         String expectedTitle = "title2";
         String expectedContent = "content2";
 
-        //when
         PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
                 .title(expectedTitle)
                 .content(expectedContent)
@@ -94,5 +92,4 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
-
 }

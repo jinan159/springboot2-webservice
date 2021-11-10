@@ -25,7 +25,7 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void post_save_and_select() {
+    public void 게시글저장_불러오기() {
         String title = "테스트 게시글";
         String content = "테스트 본문";
 
@@ -45,7 +45,7 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void BaseTimeEntity_test() {
+    public void BaseTimeEntity_등록() {
         // given
         LocalDateTime now = LocalDateTime.of(2021,11,8,0,0);
 
@@ -69,6 +69,5 @@ public class PostsRepositoryTest {
 
         assertThat(posts.getCreateDate()).isAfter(now);
         assertThat(posts.getModifiedDate()).isAfter(now);
-        assertThat(posts.getModifiedDate()).isAfter(posts.getCreateDate());
     }
 }
