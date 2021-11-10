@@ -15,14 +15,17 @@
         <li class="nav-item">
             <a role="button" class="btn btn-info ms-2" href="/oauth2/authorization/google">Google Login</a>
         </li>
+        <li class="nav-item">
+            <a role="button" class="btn btn-success ms-2" href="/oauth2/authorization/naver">Naver Login</a>
+        </li>
     {{/userName}}
     {{#userName}}
         <li class="nav-item">
             {{#userPicture}}
-            <img src="{{userPicture}}" height="50px"/>
+            <img src="{{userPicture}}" height="38px"/>
             {{/userPicture}}
             Logged in as : <span id="user">{{userName}}</span>
-            <a role="button" class="btn btn-success ms-2" href="/logout">Logout</a>
+            <a role="button" class="btn btn-secondary ms-2" href="/logout">Logout</a>
         </li>
     {{/userName}}
     <li class="nav-item">
