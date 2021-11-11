@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+// TODO : mock test 적용해서, 타 테스트에 지장없도록 개선해야함
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PostsServiceTest {
