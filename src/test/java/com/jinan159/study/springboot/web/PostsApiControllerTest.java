@@ -54,7 +54,7 @@ public class PostsApiControllerTest {
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void cleanup() {
         postsRepository.deleteAll();
     }
 
