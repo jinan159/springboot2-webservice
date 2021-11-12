@@ -1,8 +1,10 @@
 package com.jinan159.study.springboot.service.posts;
 
+import com.jinan159.study.springboot.domain.posts.PostsRepository;
 import com.jinan159.study.springboot.web.dto.PostsResponseDto;
 import com.jinan159.study.springboot.web.dto.PostsSaveRequestDto;
 import com.jinan159.study.springboot.web.dto.PostsUpdateRequestDto;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,14 @@ public class PostsServiceTest {
 
     @Autowired
     private PostsService postsService;
+
+    @Autowired
+    private PostsRepository postsRepository;
+
+    @After
+    public void cleanup() {
+        postsRepository.deleteAll();
+    }
 
     @Test
     public void Insert_Update_Select_Test() {
