@@ -7,11 +7,13 @@ BEFORE_DEPLOY=$JENKINS_HOME/before-deploy
 WORKSPACE_ROOT=$JENKINS_HOME/workspace/$PROJECT_NAME
 
 # make directory before-deploy/script/service
-if [! -d "$BEFORE_DEPLOY/jar"]; then
+if [ ! -d "$BEFORE_DEPLOY/jar" ]
+then
   mkdir -p $BEFORE_DEPLOY/jar
 fi
 
-if [! -d "$BEFORE_DEPLOY/scripts/service"]; then
+if [ ! -d "$BEFORE_DEPLOY/scripts/service" ]
+then
   mkdir -p $BEFORE_DEPLOY/scripts/service
 fi
 
@@ -26,4 +28,4 @@ cd $BEFORE_DEPLOY
 echo $(pwd)
 
 echo ">> Archive $PROJECT_NAME.tar.gz"
-tar -zcvf $PROJECT_NAME.tar.gz $BEFORE_DEPLOY
+tar -zcvf $PROJECT_NAME.tar.gz ./scripts ./jar
