@@ -25,7 +25,7 @@ fi
 
 echo ">> Start deploy [$PROJECT_NAME]"
 
-JAR_NAME=$(ls -tf JAR_DIR/*.jar | tail -n 1)
+JAR_NAME=$(ls -tf $JAR_DIR/*.jar | tail -n 1)
 echo ">> Deploy target : [$JAR_NAME]"
 
 echo ">> Add execution permission to [$JAR_NAME]"
