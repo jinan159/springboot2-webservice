@@ -38,7 +38,7 @@ echo ">> Run [$JAR_NAME]"
 nohup java -jar \
 -Dspring.config.location=classpath:/application-real.properties,$CONFIG_DIR/application-real-db.properties,$CONFIG_DIR/application-oauth.properties  \
 -Dspring.profiles.active=real \
-$JAR_NAME > nohup.out &
+$JAR_NAME > $APP_HOME/nohup.out 2>&1
 
 echo ">>>> END DEPLOY SERVER <<<<"
 
