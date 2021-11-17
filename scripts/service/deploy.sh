@@ -10,7 +10,7 @@ CONFIG_DIR=$APP_HOME/config
 echo ">>>> START DEPLOY SERVER <<<<"
 
 echo ">> Check [$PROJECT_NAME] running state.";
-CURRENT_PID=$(pgrep -fl $PROJECT_NAME | grep jar | awk '{print $1}')
+CURRENT_PID=$(pgrep -fl $PROJECT_NAME | awk '{print $1}')
 
 if [ -z "$CURRENT_PID" ]; then
   echo ">> [$PROJECT_NAME] is not running."
