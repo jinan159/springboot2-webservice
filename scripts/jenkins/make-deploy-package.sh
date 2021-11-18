@@ -22,7 +22,7 @@ echo ">> Copy jar file."
 cp $WORKSPACE_ROOT/build/libs/*.jar $BEFORE_DEPLOY/jar
 
 echo ">> Copy service deploy scripts."
-cp $WORKSPACE_ROOT/scripts/service/* $BEFORE_DEPLOY/scripts/service
+cp -r $WORKSPACE_ROOT/scripts/service/* $BEFORE_DEPLOY/scripts/service
 
 echo ">> Move to before-deploy directory."
 cd $BEFORE_DEPLOY
