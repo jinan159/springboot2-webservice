@@ -13,10 +13,16 @@ if [ ! -d "$BEFORE_DEPLOY/jar" ]; then
   mkdir -p $BEFORE_DEPLOY/jar
 fi
 
+echo ">> Clean $BEFORE_DEPLOY/jar directory"
+rm -rf $BEFORE_DEPLOY/jar/*
+
 if [ ! -d "$BEFORE_DEPLOY/scripts/service" ]; then
   echo ">> Make $BEFORE_DEPLOY/scripts/service directory"
   mkdir -p $BEFORE_DEPLOY/scripts/service
 fi
+
+echo ">> Clean $BEFORE_DEPLOY/scripts/service directory"
+rm -rf $BEFORE_DEPLOY/scripts/service/*
 
 echo ">> Copy jar file."
 cp $WORKSPACE_ROOT/build/libs/*.jar $BEFORE_DEPLOY/jar
