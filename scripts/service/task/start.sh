@@ -27,10 +27,11 @@ echo "> execute $JAR_NAME "
 
 IDLE_PROFILE=$(find_idle_profile)
 
-echo "> $JAR_NAME is launched for profile=$IDLE_PROFILE"
 nohup java -jar \
     -Dspring.config.location=classpath:/application.properties,classpath:/application-$IDLE_PROFILE.properties,/home/webservice/app/config/application-oauth.properties,/home/webservice/app/config/application-real-db.properties \
     -Dspring.profiles.active=$IDLE_PROFILE \
-    $JAR_NAME > $APP_HOME/nohup.out 2>&1 &
+    $JAR_NAME > $APP_HOME/nohup-$IDLE_PROFILE.out 2>&1 &
+
+echo "> $JAR_NAME is launched for profile=$IDLE_PROFILE"
 
 echo ">>>> END SERVER START SCRIPT <<<<"
