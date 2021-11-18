@@ -30,10 +30,10 @@ function find_idle_port()
 
     if [ ${IDLE_PROFILE} == real ]
     then
-      # real1 profile's port is available
-      echo "8081"
-    else
       # real profile's port is available
       echo "8080"
+    else
+      # real1 profile's port is available
+      echo "8081"
     fi
 }
