@@ -1,9 +1,5 @@
 #!/bin/bash
 
-ABSPATH=$(readlink -f $0)
-ABSDIR=$(dirname $ABSPATH)
-source ${ABSDIR}/profile.sh
-
 APP_HOME=/home/webservice/app
 PROJECT_NAME=springboot2-webservice
 
@@ -25,7 +21,7 @@ chmod +x $JAR_NAME
 
 echo "> execute $JAR_NAME "
 
-IDLE_PROFILE=$(find_idle_profile)
+IDLE_PROFILE=${1}
 
 nohup java -jar \
     -Dspring.config.location=classpath:/application.properties,classpath:/application-$IDLE_PROFILE.properties,/home/webservice/app/config/application-oauth.properties,/home/webservice/app/config/application-real-db.properties \

@@ -2,10 +2,9 @@
 
 ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
-source ${ABSDIR}/profile.sh
 source ${ABSDIR}/switch.sh
 
-IDLE_PORT=$(find_idle_port)
+IDLE_PORT=${1}
 
 echo ">>>> START HEALTH CHECK SCRIPT <<<<"
 
@@ -37,7 +36,7 @@ do
     exit 1
   fi
 
-  echo "> Health check 연결 실패. 재시도..."
+  echo "> Health check failed. retry..."
   sleep 10
 done
 
