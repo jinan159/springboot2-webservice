@@ -5,23 +5,27 @@
 
 echo ">>>> START ZERO DOWNTIME DELPOY SCRIPT <<<<"
 
+ABSPATH=$(readlink -f $0)
+ABSDIR=$(dirname $ABSPATH)
+TASK_DIR=${ABSDIR}/task
+
 echo "> Authorize execute permission to scripts"
-chmod +x ./task/health.sh
-chmod +x ./task/profile.sh
-chmod +x ./task/start.sh
-chmod +x ./task/stop.sh
-chmod +x ./task/switch.sh
+chmod +x $TASK_DIR/health.sh
+chmod +x $TASK_DIR/profile.sh
+chmod +x $TASK_DIR/start.sh
+chmod +x $TASK_DIR/stop.sh
+chmod +x $TASK_DIR/switch.sh
 
 # stop unused service
-echo "> timeout 60s ./task/stop.sh"
-timeout 60s ./task/stop.sh
+echo "> timeout 60s $TASK_DIR/stop.sh"
+timeout 60s $TASK_DIR/stop.sh
 
 # start new version of server
-echo "> timeout 60s ./task/start.sh"
-timeout 60s ./task/start.sh
+echo "> timeout 60s $TASK_DIR/start.sh"
+timeout 60s $TASK_DIR/start.sh
 
 # health check new version of service
-echo "> timeout 60s ./task/health.sh"
-timeout 60s ./task/health.sh
+echo "> timeout 60s $TASK_DIR/health.sh"
+timeout 60s $TASK_DIR/health.sh
 
 echo ">>>> END ZERO DOWNTIME DELPOY SCRIPT <<<<"
