@@ -40,5 +40,7 @@ nohup java -jar \
 -Dspring.profiles.active=real \
 $JAR_NAME > $APP_HOME/nohup.out 2>&1 &
 
+sudo service nginx reload
+
 echo ">>>> END DEPLOY SERVER <<<<"
 

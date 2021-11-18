@@ -1,7 +1,9 @@
 package com.jinan159.study.springboot.config.auth;
 
 import com.jinan159.study.springboot.config.auth.dto.OAuthAttributes;
+import com.jinan159.study.springboot.config.auth.dto.OAuthAttributesFactory;
 import com.jinan159.study.springboot.config.auth.dto.SessionUser;
+import com.jinan159.study.springboot.config.auth.dto.SocialLoginType;
 import com.jinan159.study.springboot.domain.user.User;
 import com.jinan159.study.springboot.domain.user.UserReporitory;
 import lombok.RequiredArgsConstructor;
@@ -28,22 +30,26 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2UserService delegate = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
 
-        // 현재 로그인 진행 중인 서비스를 구분하는 코드
-        String registrationId = userRequest.getClientRegistration().getRegistrationId();
         /*
         - OAuth2 로그인 진행 시 키가 되는 필드값임(PK 같은 의미)
         - 구글의 경우 기본적으로 "sub" 라는 기본키를 지원함(네이버, 카카오는 지원하지 않는다고 함)
          */
         String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
                 .getUserInfoEndpoint().getUserNameAttributeName();
+
+        // 현재 로그인 진행 중인 서비스를 구분하는 코드
+        SocialLoginType type = SocialLoginType.valueOf(userRequest
+                .getClientRegistration()
+                .getRegistrationId()
+                .toUpperCase());
+
         /*
         - OAuth2UserService 를 통해 가져온 OAuth2User 의 attribute 를 담을 클래스
         - 타 소셜 로그인도 이 클래스를 사용함
          */
-        OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
+        OAuthAttributes attributes = OAuthAttributesFactory.getOAuthAttributes(type, oAuth2User.getAttributes(), userNameAttributeName);
 
         User user = saveOrUpdate(attributes);
-
 
         /*
          - 세션에 사용자 정보를 저장하기 위함 DTO 클래스
