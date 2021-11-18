@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # authorize execute permission to task scripts
 # this script will be authorized execute permission by jenkins
 

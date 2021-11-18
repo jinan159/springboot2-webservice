@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # 'real' is used = 'real1' is available
 # 'real1' is used = 'real' is available
