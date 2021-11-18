@@ -25,7 +25,7 @@ echo "> Get idle port $IDLE_PORT"
 
 # Get idle PROFILE
 IDLE_PROFILE=$(find_idle_profile)
-echo "> Get idle profile $IDLE_PORT"
+echo "> Get idle profile $IDLE_PROFILE"
 
 # stop unused service
 echo "> timeout 60s $TASK_DIR/stop.sh"
