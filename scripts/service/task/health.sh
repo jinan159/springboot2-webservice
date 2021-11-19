@@ -22,7 +22,7 @@ do
   if [ ${UP_COUNT} -ge 1 ]
   then
       echo "> Health check SUCCESS"
-      switch_proxy
+      switch_proxy $IDLE_PORT
       break
   else
       echo "> Health check UNSTABLE"
