@@ -12,13 +12,13 @@ public class OAuthNaverAttributes extends OAuthAttributes {
     private String email;
     private String picture;
 
-    public OAuthNaverAttributes(Map<String, Object> attributes, String userNameAttributeName) {
+    public OAuthNaverAttributes(Map<String, Object> attributes) {
         Map<String, Object> response = (Map<String, Object>) attributes.get("response");
 
         this.name = (String) response.get("name");
         this.email = (String) response.get("email");
         this.picture = (String) response.get("picture");
         this.attributes = response;
-        this.nameAttributeKey = userNameAttributeName;
+        this.nameAttributeKey = "id";
     }
 }

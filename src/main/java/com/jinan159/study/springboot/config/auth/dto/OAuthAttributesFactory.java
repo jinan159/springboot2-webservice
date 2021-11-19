@@ -13,7 +13,7 @@ public class OAuthAttributesFactory {
     public static OAuthAttributes getOAuthAttributes(SocialLoginType type, Map<String, Object> attributes, String userNameAttributeName) {
         switch (type) {
             case GOOGLE: return new OAuthGoogleAttributes(attributes, userNameAttributeName);
-            case NAVER: return new OAuthNaverAttributes(attributes, userNameAttributeName);
+            case NAVER: return new OAuthNaverAttributes(attributes);
             default: throw new IllegalArgumentException("Invalid SocialLoginType");
         }
     }
