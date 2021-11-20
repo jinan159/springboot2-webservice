@@ -11,8 +11,9 @@
 1. 프로젝트 클론
 git clone https://github.com/jinan159/springboot2-webservice
 
-2. 빌드(프로젝트 루트 경로로 이동)
-gradlew build
+2. 빌드(프로젝트 경로로 이동)
+cd springboot2-webservice
+./gradlew build
 
 3. 실행
 java -jar \                  
