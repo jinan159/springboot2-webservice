@@ -1,5 +1,6 @@
 package com.jinan159.study.springboot.web;
 
+import com.jinan159.study.springboot.web.dto.RealProfiles;
 import org.junit.Test;
 import org.springframework.mock.env.MockEnvironment;
 
@@ -10,19 +11,19 @@ public class ProfileControllerUnitTest {
     @Test
     public void real_profile이_조회된다() {
         // given
-        String expectedProfile = "real";
+        RealProfiles expectedProfile = RealProfiles.REAL;
         MockEnvironment env = new MockEnvironment();
-        env.addActiveProfile(expectedProfile);
+        env.addActiveProfile(expectedProfile.toString());
         env.addActiveProfile("oauth");
         env.addActiveProfile("real-db");
 
         ProfileController controller = new ProfileController(env);
 
         // when
-        String profile = controller.profile();
+        String activeProfile = controller.profile();
 
         // then
-        assertThat(profile).isEqualTo(expectedProfile);
+        assertThat(activeProfile).isEqualTo(expectedProfile.toString());
     }
 
     @Test
@@ -36,24 +37,24 @@ public class ProfileControllerUnitTest {
         ProfileController controller = new ProfileController(env);
 
         // when
-        String profile = controller.profile();
+        String activeProfile = controller.profile();
 
         // then
-        assertThat(profile).isEqualTo(expectedProfile);
+        assertThat(activeProfile).isEqualTo(expectedProfile);
     }
 
     @Test
     public void active_profile이_없으면_default가_조회된다() {
         // given
-        String expectedProfile = "default";
+        RealProfiles expectedProfile = RealProfiles.DEFAULT;
         MockEnvironment env = new MockEnvironment();
 
         ProfileController controller = new ProfileController(env);
 
         // when
-        String profile = controller.profile();
+        String activeProfile = controller.profile();
 
         // then
-        assertThat(profile).isEqualTo(expectedProfile);
+        assertThat(activeProfile).isEqualTo(expectedProfile.toString());
     }
 }

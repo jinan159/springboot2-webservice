@@ -1,5 +1,6 @@
 package com.jinan159.study.springboot.web;
 
+import com.jinan159.study.springboot.web.dto.RealProfiles;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +26,14 @@ public class ProfileControllerTest {
     @Test
     public void profile은_인증없이_호출된다() throws Exception {
         // given
-        String expectedProfile = "default";
+        RealProfiles expectedProfile = RealProfiles.DEFAULT;
 
         // when
         ResponseEntity<String> response = restTemplate.getForEntity("/profile", String.class);
 
         // then
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(response.getBody()).isEqualTo(expectedProfile);
+        assertThat(response.getBody()).isEqualTo(expectedProfile.toString());
     }
 
 }
