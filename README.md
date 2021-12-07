@@ -60,3 +60,5 @@ build/libs/springboot2-webservice-1.2-SNAPSHOT.jar
 무중단 배포 실행 스크립트 : [zero-downtime-deploy.sh](https://github.com/jinan159/springboot2-webservice/blob/master/scripts/service/zero-downtime-deploy.sh)
 
 ![](https://images.velog.io/images/jinan159/post/7638e006-87b1-4cda-bf4e-66b69cb156cb/image.png)
+
+[실행방법 테스트 링크](#프로젝트-실행-방법)
