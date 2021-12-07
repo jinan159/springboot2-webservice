@@ -1,7 +1,5 @@
 # springboot2-webservice
 
-[테스트 링크](#안녕하세요)
-
 스프링 부트 책의 기본 예제를 따라하며 기본 개념들을 익히며 만든 프로젝트 입니다.
 
 - 프로젝트 후기 : [[Spring] 스프링 부트와 AWS로 혼자 구현하는 웹 서비스 후기(+삽질)](https://jwkim96.tistory.com/190)
@@ -62,7 +60,3 @@ build/libs/springboot2-webservice-1.2-SNAPSHOT.jar
 무중단 배포 실행 스크립트 : [zero-downtime-deploy.sh](https://github.com/jinan159/springboot2-webservice/blob/master/scripts/service/zero-downtime-deploy.sh)
 
 ![](https://images.velog.io/images/jinan159/post/7638e006-87b1-4cda-bf4e-66b69cb156cb/image.png)
-
-#### 안녕하세요
-
-안녕하세요
