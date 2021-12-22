@@ -5,6 +5,17 @@
 - 프로젝트 후기 : [[Spring] 스프링 부트와 AWS로 혼자 구현하는 웹 서비스 후기(+삽질)](https://jwkim96.tistory.com/190)
 - 공부한 책 : 스프링 부트와 AWS로 혼자 구현하는 웹 서비스 (저자 - 이동욱)
 
+# 책 + @
+
+책에서의 내용을 그대로 따라하려 하지 않고, 다르게 구성하고 싶은 부분들을 추가로 공부하여 구성한 내용들 입니다.
+
+| 구분 | 책 | 실제 구성 |
+|-|-|-|
+| CI | TravisCI | Docker, Jenkink, Github Webhook |
+| CD | TravisCI + AWS S3 + AWS CodeDeploy | Docker, Jenkink, SSH |
+| Hosting | AWS EC2 | Docker, Ubuntu |
+| DB | AWS RDS(Maria) | Docker, MariaDB |
+
 ## 프로젝트 실행 방법
 
 ```
